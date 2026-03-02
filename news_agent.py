@@ -19,7 +19,7 @@ RSS_FEEDS = {
 }
 
 # 2. 环境变量 (稍后在 GitHub Secrets 中配置)
-API_KEY = os.getenv("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") 
+API_KEY = os.getenv("sk-26Mkaj1pCf3cgcCj8jmRG51tFPbcxJxQCcNxajy3CnyO1dW5") 
 EMAIL_SENDER = os.getenv("plenilunesept@gmail.com")       # 你的发件 Gmail
 EMAIL_PASSWORD = os.getenv("ckxvyhflilgpxnvg")   # Gmail 的应用程式密码
 EMAIL_RECEIVER = os.getenv("plenilunesept@gmail.com")   # 收件邮箱 (可以是同一个)
@@ -45,7 +45,7 @@ def fetch_news():
 def summarize_news(news_text):
     client = OpenAI(
         api_key=API_KEY,
-        # base_url="https://api.chatanywhere.org/v1" # 如果用 DeepSeek 记得取消这行注释
+        base_url="https://api.chatanywhere.org/v1"
     )
     
     prompt = f"""
@@ -104,5 +104,6 @@ if __name__ == "__main__":
     send_email(summary)
 
     print("Agent 工作完成！")
+
 
 
