@@ -45,7 +45,7 @@ def fetch_news():
 def summarize_news(news_text):
     client = OpenAI(
         api_key=API_KEY,
-        # base_url="https://api.chatanywhere.tech" # 如果用 DeepSeek 记得取消这行注释
+        # base_url="https://api.chatanywhere.org/v1" # 如果用 DeepSeek 记得取消这行注释
     )
     
     prompt = f"""
@@ -104,3 +104,4 @@ if __name__ == "__main__":
     send_email(summary)
 
     print("Agent 工作完成！")
+
