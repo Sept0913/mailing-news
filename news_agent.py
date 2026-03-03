@@ -19,7 +19,7 @@ RSS_FEEDS = {
 }
 
 # 2. 环境变量 (稍后在 GitHub Secrets 中配置)
-API_KEY = os.getenv("sk-26Mkaj1pCf3cgcCj8jmRG51tFPbcxJxQCcNxajy3CnyO1dW5") 
+API_KEY = os.getenv("sk-llumrnqosgeiusgsqrtzdutpbwmsoppqdfqiblmvpjdrkhzt") 
 EMAIL_SENDER = os.getenv("plenilunesept@gmail.com")       # 你的发件 Gmail
 EMAIL_PASSWORD = os.getenv("ckxvyhflilgpxnvg")   # Gmail 的应用程式密码
 EMAIL_RECEIVER = os.getenv("plenilunesept@gmail.com")   # 收件邮箱 (可以是同一个)
@@ -45,7 +45,7 @@ def fetch_news():
 def summarize_news(news_text):
     client = OpenAI(
         api_key=API_KEY,
-        base_url="https://api.chatanywhere.org/v1"
+        base_url="https://api.siliconflow.cn/v1"
     )
     
     prompt = f"""
@@ -64,7 +64,7 @@ def summarize_news(news_text):
     """
     print("正在请求 AI 进行深度筛选和总结...")
     response = client.chat.completions.create(
-        model="gpt-4o-mini", # 或者 deepseek-chat
+        model="deepseek-chat", # 或者 deepseek-chat
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3  # 稍微调低温度，让新闻总结更严谨客观
     )
@@ -104,6 +104,7 @@ if __name__ == "__main__":
     send_email(summary)
 
     print("Agent 工作完成！")
+
 
 
 
