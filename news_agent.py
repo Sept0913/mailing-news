@@ -64,7 +64,7 @@ def summarize_news(news_text):
     """
     print("正在请求 AI 进行深度筛选和总结...")
     response = client.chat.completions.create(
-        model="deepseek-reasoner", # 或者 deepseek-chat
+        model="deepseek-ai/DeepSeek-R1", # 或者 deepseek-chat
         messages=[{"role": "user", "content": prompt}],
         temperature=0.6  # 稍微调低温度，让新闻总结更严谨客观
     )
@@ -104,6 +104,7 @@ if __name__ == "__main__":
     send_email(summary)
 
     print("Agent 工作完成！")
+
 
 
 
